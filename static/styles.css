@@ -353,23 +353,44 @@ body {
   color: #444;
 }
 
+.page-footer {
+  flex-shrink: 0;
+  padding: 2rem 2.5rem 3rem;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+.page-footer .vibe-coded {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
 @media (max-width: 720px) {
   html {
-    height: -webkit-fill-available;
+    height: auto;
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
   }
 
   .layout {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-rows: none;
     min-height: 100vh;
-    min-height: -webkit-fill-available;
-    height: 100vh;
-    height: 100dvh;
+    height: auto;
+    overflow: visible;
   }
 
   .left-panel {
     min-height: 0;
     padding: 1.5rem;
+    flex-shrink: 0;
   }
 
   .photo-wrap {
@@ -378,24 +399,31 @@ body {
 
   .right-panel {
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
+    flex: none;
   }
 
   .right-panel-scroll {
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
     scroll-snap-type: none;
-    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    display: block;
   }
 
   .section-scroll-wrapper {
-    min-height: 100%;
+    min-height: 0;
+    height: auto;
     scroll-snap-align: none;
     scroll-snap-stop: normal;
+    justify-content: flex-start;
+    display: block;
   }
 
   .section-scroll-wrapper > .section-inner {
-    padding: 0 1.5rem 2rem;
-    margin: -2rem auto 0;
+    max-height: none;
+    overflow: visible;
+    padding: 1.5rem 1.5rem 2rem;
+    margin: 0 auto;
   }
 
   .content-header-inner h1 {
@@ -405,5 +433,9 @@ body {
 
   .content-header-inner {
     padding: 2rem 1.5rem 1rem;
+  }
+
+  .page-footer {
+    padding: 2rem 1.5rem 3rem;
   }
 }
