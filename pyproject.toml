@@ -17,4 +17,5 @@ dependencies = [
     "langchain-text-splitters>=1.1.0",
     "faiss-cpu>=1.13.2",
     "langchain-core>=1.2.9",
+    "gunicorn>=25.0.3",
 ]

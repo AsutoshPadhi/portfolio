@@ -23,4 +23,5 @@ def api_ask():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    print("App running in production mode")
