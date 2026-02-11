@@ -215,6 +215,33 @@ body {
   display: none;
 }
 
+.scroll-hint {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 0 1rem;
+  color: #888;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-hint.at-end {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint-icon {
+  animation: scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
 
 .content-header-inner h1 {
   margin: 0 0 0.25rem;
@@ -437,5 +464,9 @@ body {
 
   .page-footer {
     padding: 2rem 1.5rem 3rem;
+  }
+
+  .scroll-hint {
+    display: none;
   }
 }

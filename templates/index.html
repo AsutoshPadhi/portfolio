@@ -121,6 +121,10 @@
           <p class="vibe-coded">This website was entirely Vibe Coded</p>
         </footer>
       </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint-text">Scroll</span>
+        <svg class="scroll-hint-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
     </main>
   </div>
   <script>
@@ -150,6 +154,22 @@
       input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') sendQuery();
       });
+    })();
+
+    (function() {
+      var scrollEl = document.querySelector('.right-panel-scroll');
+      var hintEl = document.querySelector('.scroll-hint');
+      if (!scrollEl || !hintEl) return;
+
+      function updateHint() {
+        var threshold = 40;
+        var atEnd = scrollEl.scrollTop + scrollEl.clientHeight >= scrollEl.scrollHeight - threshold;
+        hintEl.classList.toggle('at-end', atEnd);
+      }
+
+      scrollEl.addEventListener('scroll', updateHint);
+      window.addEventListener('resize', updateHint);
+      updateHint();
     })();
   </script>
 </body>
